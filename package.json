@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/marmishaw14/comp-3018-coding-challenge-5/issues"
   },
-  "homepage": "https://github.com/marmishaw14/comp-3018-coding-challenge-5#readme"
+  "homepage": "https://github.com/marmishaw14/comp-3018-coding-challenge-5#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
