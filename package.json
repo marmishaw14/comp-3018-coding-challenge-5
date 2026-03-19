@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/marmishaw14/comp-3018-coding-challenge-5#readme",
   "devDependencies": {
+    "@redocly/cli": "^2.24.0",
     "@types/express": "^5.0.6",
     "@types/node": "^25.5.0",
     "ts-node": "^10.9.2",
