@@ -1,4 +1,6 @@
 import express, { Express } from "express";
+import cors from "cors";
+import setupSwagger from "../src/config/swaggerConfig";
 import resourceRoutes from "../src/api/v1/routes/resourceRoutes";
 
 /**
@@ -13,6 +15,8 @@ interface HealthCheckResponse {
 
 // Initialize Express application
 const app: Express = express();
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -35,5 +39,8 @@ app.get("/api/v1/health", (req, res) => {
 
     res.json(healthData);
 });
+
+// Setup Swagger
+setupSwagger(app);
 
 export default app;
