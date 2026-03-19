@@ -18,14 +18,18 @@ resourcesRouter.get(
     resourceController.getResourceById
 );
 
-resourcesRouter.put(
+/**
+ * resourcesRouter.put(
     "/resources/:id",
     resourceController.updateResource
 );
+*/
 
-resourcesRouter.delete(
+/**
+ * resourcesRouter.delete(
     "/resources/:id",
     resourceController.deleteResource
 )
+*/
 
 export default resourcesRouter;
