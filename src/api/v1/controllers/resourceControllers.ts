@@ -30,7 +30,11 @@ export const getAllResources = async (req: Request, res: Response, next: NextFun
  * @param {NextFunction} next - The next middleware function.
  * @returns {Promise<void>}
  */
-export const createResource = (req: Request, res: Response, next: NextFunction) => {
+export const createResource = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     try {
         const resourceData: Omit<Resource, "id"> = req.body as Omit<Resource, "id">;
         const resource: Resource = resourceService.createResource(resourceData);
@@ -51,15 +55,15 @@ export const createResource = (req: Request, res: Response, next: NextFunction) 
  * @param {NextFunction} next - The next middleware function.
  * @returns {Promise<void>}
  */
-export const getResourceById = async (
+export const getResourceById = (
     req: Request,
     res: Response,
     next: NextFunction
-): Promise<void> => {
+) => {
     const resourceId = Number(req.params.id);
 
     try {
-        const resource = await resourceService.getResourceById(resourceId);
+        const resource = resourceService.getResourceById(resourceId);
 
         if (!resource) {
             res.status(HTTP_STATUS.NOT_FOUND).json({
