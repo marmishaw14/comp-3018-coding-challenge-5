@@ -1,7 +1,9 @@
 import express, { Express } from "express";
+import dotenv from "dotenv";
+dotenv.config();
+import setupSwagger from "../src/config/swaggerConfig";
 import { getHelmetConfig } from "./config/helmetConfig";
 import cors from "cors";
-import setupSwagger from "../src/config/swaggerConfig";
 import resourceRoutes from "../src/api/v1/routes/resourceRoutes";
 
 /**
