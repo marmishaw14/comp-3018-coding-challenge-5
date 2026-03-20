@@ -4,6 +4,7 @@ dotenv.config();
 import setupSwagger from "../src/config/swaggerConfig";
 import { getHelmetConfig } from "./config/helmetConfig";
 import cors from "cors";
+import { publicCorsOptions } from "../src/config/corsConfig";
 import resourceRoutes from "../src/api/v1/routes/resourceRoutes";
 
 /**
@@ -32,7 +33,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", resourceRoutes);
 
 // Define health check route
-app.get("/api/v1/health", (req, res) => {
+app.get("/api/v1/health", cors(publicCorsOptions),(req, res) => {
     const healthData: HealthCheckResponse = {
         status: "OK",
         uptime: process.uptime(),
@@ -44,7 +45,8 @@ app.get("/api/v1/health", (req, res) => {
 });
 
 app.use(getHelmetConfig);
-
+app.use("/api/v1/health", cors(publicCorsOptions));
+app.use("/api-docs", cors(publicCorsOptions));
 // Setup Swagger
 setupSwagger(app);
 
