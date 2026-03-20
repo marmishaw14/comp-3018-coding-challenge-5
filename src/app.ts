@@ -1,4 +1,5 @@
 import express, { Express } from "express";
+import { getHelmetConfig } from "./config/helmetConfig";
 import cors from "cors";
 import setupSwagger from "../src/config/swaggerConfig";
 import resourceRoutes from "../src/api/v1/routes/resourceRoutes";
@@ -39,6 +40,8 @@ app.get("/api/v1/health", (req, res) => {
 
     res.json(healthData);
 });
+
+app.use(getHelmetConfig);
 
 // Setup Swagger
 setupSwagger(app);
